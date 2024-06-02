@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - nginx-server
+    - Ansible_Molecule-Nginx-Test-By-Instance
