@@ -1,25 +1,30 @@
 ---
-# tasks file for nginx-server
 
 - name : Debugging ONLY
   debug:
     msg: "This is from khangtictoc hahaha"
 
-- command: whoami
+- name: Get $USER used for executing role
+  command: whoami
   register: whoami
+  changed_when: False
   
-- debug:
+- name: Print out $USER used for executing role
+  debug:
     var: whoami.stdout
-  
 
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
 
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
 
-# - name: Install nginx
-#   apt:
-#     name: nginx
-#     state: present
-
-# - name: Start nginx
-#   service:
-#     name: nginx
-#     state: started
+- name: Add default host configuration
+  copy:
+    src: default
+    dest: /etc/nginx/sites-enabled/default
+  notify: Reload nginx

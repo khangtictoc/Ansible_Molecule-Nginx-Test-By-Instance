@@ -1,0 +1,5 @@
+warn_list:
+    - meta-no-info
+    - yaml[line-length]
+skip_list:
+    - meta-incorrect

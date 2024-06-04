@@ -1,2 +1,6 @@
+# handlers/main.yml
 ---
-# handlers file for nginx-server
+- name: Reload nginx
+  service:
+    name: nginx
+    state: reloaded
