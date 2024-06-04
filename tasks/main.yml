@@ -1,2 +1,25 @@
 ---
-# tasks file for Ansible_Molecule-Nginx-Test-By-Instance
+# tasks file for nginx-server
+
+- name : Debugging ONLY
+  debug:
+    msg: "This is from khangtictoc hahaha"
+
+- command: whoami
+  register: whoami
+  
+- debug:
+    var: whoami.stdout
+  
+
+
+
+# - name: Install nginx
+#   apt:
+#     name: nginx
+#     state: present
+
+# - name: Start nginx
+#   service:
+#     name: nginx
+#     state: started
